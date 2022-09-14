@@ -1,2 +1,2 @@
 # Atlas_SNS_naijoryosuke
-jirgjoej
+jirgjoej jjjj
