@@ -27,7 +27,7 @@
   <div id="container">
     @yield('content')
   </div>
-  <script src="JavaScriptファイルのURL"></script>
-  <script src="JavaScriptファイルのURL"></script>
-</body>
+ <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
 </html>
