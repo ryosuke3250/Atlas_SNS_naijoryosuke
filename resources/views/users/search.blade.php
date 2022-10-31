@@ -2,13 +2,18 @@
 
 @section('content')
 <p>検索</p>
-<form action="post/search" method="POST">
-    @csrf
-        <div class="form-group">
-            <input type="search" name="search" class="form-control" placeholder="ユーザー名">
-        </div>
-        <input type="image" id="image" src="images/post.png">
-</form>
+  <form action="/search" method="POST">
+    {{csrf_field()}}
+    <input type="search" name="search" value="" placeholder="ユーザー名">
+    <button type="submit">検索</button>
+    <p>{{ session('search')}}</p>
+  </form>
+
+@foreach($users as $user)
+<tr>
+  <td>{{$user->username}}</td>
+</tr>
+@endforeach
 
 
 @endsection

@@ -15,6 +15,25 @@ class PostsController extends Controller
         return view('posts.index',['list'=>$list]);
     }
 
+
+    public function search(Request $request)
+    {
+        $search = $request->input('search');
+        $query = User::query();
+        if (!empty($search)) {
+            $query->where('username', 'LIKE', "%{$search}%");
+            $request->session()->put('search', '検索ワード：' . $search);
+        } else {
+            \Session::forget('search');
+            $users = User::all();
+        }
+        $users = $query->get();
+
+
+
+        return view('users.search', compact('users', 'search'));
+    }
+
       public function create(Request $request) //送られたデータを受け取ってる
     {
         //dd($request);
